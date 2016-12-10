@@ -1,0 +1,27 @@
+
+egg.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+egg_cracked
+  rotate: false
+  xy: 2, 2
+  size: 210, 244
+  orig: 210, 244
+  offset: 0, 0
+  index: -1
+egg_normal
+  rotate: false
+  xy: 214, 2
+  size: 210, 244
+  orig: 210, 244
+  offset: 0, 0
+  index: -1
+egg_very_cracked
+  rotate: false
+  xy: 426, 2
+  size: 210, 244
+  orig: 210, 244
+  offset: 0, 0
+  index: -1
