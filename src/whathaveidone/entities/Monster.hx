@@ -49,8 +49,8 @@ class Monster extends Entity
 	public var timeToEvolve(get, never):Float;
 	inline function get_timeToEvolve() return switch (level)
 	{
-		case 1: 10;
-		default: 20;
+		case 1: 15;
+		default: 120;
 	}
 
 	public var speed(get, never):Float;
