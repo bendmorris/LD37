@@ -17,7 +17,7 @@ class Monster extends Entity
 	public static inline var MAX_LEVEL:Int = 4;
 
 	static inline var MOVE_PER_SECOND:Int = 128;
-	static inline var HUNGRY_HEART_SECONDS:Float = 60;
+	static inline var HUNGRY_HEART_SECONDS:Float = 30;
 	static inline var HAPPY_HEART_SECONDS:Float = 5;
 
 	static inline var MEAT_TO_POO:Float = 3;
