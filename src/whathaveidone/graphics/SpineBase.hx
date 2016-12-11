@@ -11,27 +11,27 @@ class SpineBase extends SpinePunk
 
 	static var skeletonDataCache:Map<String, SkeletonData> = new Map();
 
-	var _animation:String;
+	public var currentAnimation:String;
 
-	public function new(name:String)
+	public function new(name:String, ?scale:Float=CHAR_SCALE)
 	{
 		if (!skeletonDataCache.exists(name))
 		{
-			skeletonDataCache[name] = SpinePunk.readSkeletonData(name, "assets/graphics/", CHAR_SCALE);
+			skeletonDataCache[name] = SpinePunk.readSkeletonData(name, "assets/graphics/", scale);
 		}
 		var skeletonData = skeletonDataCache[name];
 		var stateData = new AnimationStateData(skeletonData);
-		stateData.defaultMix = 0.2;
+		stateData.defaultMix = 0.05;
 
 		super(skeletonData, stateData);
 	}
 
 	public function setAnimation(name:AnimationType, ?loop=true)
 	{
-		if (_animation != name)
+		if (!loop || currentAnimation != name)
 		{
 			state.setAnimationByName(0, name, loop);
-			_animation = name;
+			currentAnimation = name;
 		}
 	}
 }

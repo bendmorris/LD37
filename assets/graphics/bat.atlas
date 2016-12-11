@@ -1,0 +1,48 @@
+
+bat.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_mouth_happy
+  rotate: false
+  xy: 2, 231
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_mouth_open
+  rotate: false
+  xy: 2, 2
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_mouth_sad
+  rotate: false
+  xy: 235, 231
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_normal
+  rotate: false
+  xy: 235, 2
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_shadow
+  rotate: false
+  xy: 468, 243
+  size: 159, 69
+  orig: 159, 69
+  offset: 0, 0
+  index: -1
+blob_wing
+  rotate: false
+  xy: 468, 314
+  size: 241, 144
+  orig: 241, 144
+  offset: 0, 0
+  index: -1

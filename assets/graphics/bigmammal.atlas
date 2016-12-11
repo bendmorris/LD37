@@ -1,0 +1,20 @@
+
+bigmammal.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_bigmammal_limb
+  rotate: false
+  xy: 2, 2
+  size: 114, 175
+  orig: 114, 175
+  offset: 0, 0
+  index: -1
+blob_bigmammal_normal
+  rotate: false
+  xy: 2, 179
+  size: 323, 311
+  orig: 323, 311
+  offset: 0, 0
+  index: -1

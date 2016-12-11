@@ -1,0 +1,13 @@
+
+bigslime.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_bigslime_normal
+  rotate: false
+  xy: 2, 2
+  size: 462, 474
+  orig: 462, 474
+  offset: 0, 0
+  index: -1

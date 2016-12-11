@@ -1,0 +1,20 @@
+
+slime.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_slime_normal
+  rotate: false
+  xy: 301, 2
+  size: 297, 305
+  orig: 297, 305
+  offset: 0, 0
+  index: -1
+blob_slime_sad
+  rotate: false
+  xy: 2, 2
+  size: 297, 305
+  orig: 297, 305
+  offset: 0, 0
+  index: -1

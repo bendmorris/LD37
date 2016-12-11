@@ -1,0 +1,27 @@
+
+bigbat.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_bigbat_normal
+  rotate: false
+  xy: 2, 73
+  size: 235, 323
+  orig: 235, 323
+  offset: 0, 0
+  index: -1
+blob_shadow
+  rotate: false
+  xy: 2, 2
+  size: 159, 69
+  orig: 159, 69
+  offset: 0, 0
+  index: -1
+blob_wing
+  rotate: false
+  xy: 239, 252
+  size: 241, 144
+  orig: 241, 144
+  offset: 0, 0
+  index: -1
