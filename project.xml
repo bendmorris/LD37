@@ -13,7 +13,6 @@
 
 	<assets path="assets/graphics" include="*.png" type="image" embed="true"/>
 	<assets path="assets/graphics" include="*.json|*.atlas" type="text" embed="true"/>
-	<!--assets path="assets/skins" include="*.png" type="image" embed="true"/-->
 	<assets path="assets/fonts" include="*.png" type="image" embed="true"/>
 	<assets path="assets/fonts" include="*.fnt" type="text" embed="true"/>
 	<assets path="assets/sounds" include="*.wav" type="sound" embed="true"/>
@@ -24,5 +23,4 @@
 	<haxelib name="spinehaxe"/>
 	<haxelib name="SpinePunk"/>
 	<haxelib name="HaxePunk"/>
-	<haxelib name="HaxePunk-UI"/>
 </project>

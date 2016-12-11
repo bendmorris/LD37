@@ -3,7 +3,6 @@ import openfl.display.Sprite;
 import haxepunk.HXP;
 import haxepunk.Engine;
 import haxepunk.graphics.Image;
-import haxepunk.ui.UI;
 import whathaveidone.Client;
 
 class Main extends Engine
@@ -20,8 +19,6 @@ class Main extends Engine
 		#end
 
 		HXP.stage.quality = flash.display.StageQuality.BEST;
-		//HXP.cursor = new Cursor("assets/graphics/cursor.png");
-
 		pushScene(new whathaveidone.scenes.GameScene());
 	}
 }
