@@ -21,7 +21,7 @@ class Monster extends Entity
 	static inline var HAPPY_HEART_SECONDS:Float = 7.5;
 
 	static inline var MEAT_TO_POO:Float = 3;
-	static inline var SICK_CHANCE:Float = 0.02;
+	static inline var SICK_CHANCE:Float = 0.05;
 	static inline var POO_SICK_CHANCE:Float = 0.75;
 
 	static function randomPosition(v1:Float, vsize:Float, cur:Float)
