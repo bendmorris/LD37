@@ -149,6 +149,7 @@ class GameScene extends Scene
 	function pressShot()
 	{
 		HXP.screen.shake();
+		Sound.play("shot");
 		monster.happy -= 0.5 / Defs.HEARTS;
 		if (monster.sick)
 		{
