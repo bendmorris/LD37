@@ -17,7 +17,7 @@ class Music
 		}
 		if (!loaded.exists(music))
 		{
-			loaded[music] = new Sfx('assets/music/$music.wav');
+			loaded[music] = new Sfx('assets/music/$music.ogg');
 			loaded[music].type = "music";
 		}
 		current = loaded[music];

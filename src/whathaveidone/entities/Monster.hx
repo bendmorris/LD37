@@ -22,7 +22,7 @@ class Monster extends Entity
 
 	static inline var MEAT_TO_POO:Float = 3;
 	static inline var SICK_CHANCE:Float = 0.05;
-	static inline var POO_SICK_CHANCE:Float = 0.75;
+	static inline var POO_SICK_CHANCE:Float = 1;
 
 	static function randomPosition(v1:Float, vsize:Float, cur:Float)
 	{
@@ -50,7 +50,7 @@ class Monster extends Entity
 	inline function get_timeToEvolve() return switch (level)
 	{
 		case 1: 15;
-		default: 120;
+		default: 10;
 	}
 
 	public var speed(get, never):Float;
@@ -65,6 +65,7 @@ class Monster extends Entity
 	var bubble:Bubble;
 	var behavior:MonsterBehavior = null;
 
+	var sickCount:Int = 0;
 	var cracks:Int = 0;
 	var pooProgress:Float = 0;
 	var avgHappiness:Float = 0;
@@ -296,10 +297,19 @@ class Monster extends Entity
 				monsterType = MonsterType.Blob;
 				Music.play("main");
 			case MonsterType.Blob:
-				var choices = [MonsterType.Slime, MonsterType.Mammal, MonsterType.Bat];
-				monsterType = choices[Std.int(Math.round(avgHappiness * choices.length))];
+				if (sickCount >= 3)
+				{
+					monsterType = MonsterType.Slime;
+				}
+				else
+				{
+					var choices = [MonsterType.Spider, MonsterType.Mammal, MonsterType.Bat];
+					monsterType = choices[Std.int(Math.round(avgHappiness * choices.length))];
+				}
 			case MonsterType.Slime:
 				monsterType = MonsterType.BigSlime;
+			case MonsterType.Spider:
+				monsterType = MonsterType.BigSpider;
 			case MonsterType.Mammal:
 				monsterType = MonsterType.BigMammal;
 			case MonsterType.Bat:
@@ -377,6 +387,7 @@ class Monster extends Entity
 							if (Math.random() < sickChance)
 							{
 								sick = true;
+								++sickCount;
 							}
 						}
 					}

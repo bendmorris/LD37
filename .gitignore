@@ -5,3 +5,4 @@ assets/spine/*.png
 assets/spine/*_all.svg
 *.gif
 assets/music/*.wav
+*.ogg

@@ -35,8 +35,6 @@ class Poo extends Entity
 
 		width = poo.width;
 		height = poo.height;
-
-		layer = Std.int(HXP.height * 2 - (y + 4));
 	}
 
 	public function eliminate()
@@ -62,5 +60,7 @@ class Poo extends Entity
 				scene.remove(this);
 			}
 		}
+
+		layer = Std.int(HXP.height * 2 - (y + 4));
 	}
 }

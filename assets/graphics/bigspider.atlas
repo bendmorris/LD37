@@ -1,0 +1,27 @@
+
+bigspider.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_bigspider_normal
+  rotate: false
+  xy: 2, 152
+  size: 279, 335
+  orig: 279, 335
+  offset: 0, 0
+  index: -1
+blob_spider_front_leg
+  rotate: false
+  xy: 2, 2
+  size: 88, 148
+  orig: 88, 148
+  offset: 0, 0
+  index: -1
+blob_spider_leg
+  rotate: false
+  xy: 283, 265
+  size: 176, 222
+  orig: 176, 222
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,48 @@
+
+spider.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_mouth_happy
+  rotate: false
+  xy: 2, 231
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_mouth_open
+  rotate: false
+  xy: 2, 2
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_mouth_sad
+  rotate: false
+  xy: 235, 231
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_normal
+  rotate: false
+  xy: 235, 2
+  size: 231, 227
+  orig: 231, 227
+  offset: 0, 0
+  index: -1
+blob_spider_front_leg
+  rotate: false
+  xy: 468, 86
+  size: 88, 148
+  orig: 88, 148
+  offset: 0, 0
+  index: -1
+blob_spider_leg
+  rotate: false
+  xy: 468, 236
+  size: 176, 222
+  orig: 176, 222
+  offset: 0, 0
+  index: -1
