@@ -99,6 +99,7 @@ class Monster extends Entity
 				if (level == MAX_LEVEL)
 				{
 					Music.play("creepy");
+					sick = false;
 				}
 			}
 		}

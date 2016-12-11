@@ -14,7 +14,7 @@ class TitleScene extends Scene
 		super();
 
 		var txt = new BitmapText(
-			"WHAT HAVE I DONE?\n\nA virtual pet game\n\nCreated by bendmorris for Ludum Dare 37\n\nClick to begin",
+			"WHAT HAVE I DONE?\n\nA virtual pet simulator\n\nCreated by bendmorris for Ludum Dare 37\n\nClick to begin",
 			{font: 'assets/fonts/a_little_sunshine_regular_48.fnt'}
 		);
 		txt.x = 16;
