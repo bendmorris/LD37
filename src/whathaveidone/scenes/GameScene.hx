@@ -70,6 +70,11 @@ class GameScene extends Scene
 		shotButton.y = duckButton.y + duckButton.height + 8;
 		shotButton.x = foodButton.x;
 		add(shotButton);
+
+		var muteButton = new Button(IconType.Mute, pressMute);
+		muteButton.y = HXP.height - foodButton.y - muteButton.height;
+		muteButton.x = foodButton.x;
+		add(muteButton);
 	}
 
 	override public function begin()
@@ -167,5 +172,11 @@ class GameScene extends Scene
 		{
 			sword.swing();
 		}
+	}
+
+	function pressMute()
+	{
+		Sound.toggleMute();
+		Music.toggleMute();
 	}
 }
