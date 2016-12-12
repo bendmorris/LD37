@@ -20,8 +20,6 @@ class TitleScene extends Scene
 		txt.x = 16;
 		txt.y = 16;
 		addGraphic(txt);
-
-		transparent = true;
 	}
 
 	override public function update()
