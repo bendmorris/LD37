@@ -18,7 +18,7 @@ class Monster extends Entity
 
 	static inline var MOVE_PER_SECOND:Int = 128;
 	static inline var HUNGRY_HEART_SECONDS:Float = 30;
-	static inline var HAPPY_HEART_SECONDS:Float = 7.5;
+	static inline var HAPPY_HEART_SECONDS:Float = 15;
 
 	static inline var MEAT_TO_POO:Float = 3;
 	static inline var SICK_CHANCE:Float = 0.05;
@@ -62,9 +62,10 @@ class Monster extends Entity
 		default: 1;
 	}
 
+	public var behavior:MonsterBehavior = null;
+
 	var emitter:Emitter;
 	var bubble:Bubble;
-	var behavior:MonsterBehavior = null;
 
 	var sickCount:Int = 0;
 	var cracks:Int = 0;
@@ -85,6 +86,11 @@ class Monster extends Entity
 		emitter.setAlpha("dust");
 		emitter.setGravity("dust", 2, 4);
 		cast(graphic, Graphiclist).add(emitter);
+
+		type = "monster";
+
+		width = height = 64;
+		originX = originY = Std.int(width / 2);
 	}
 
 	override public function update()
@@ -224,7 +230,7 @@ class Monster extends Entity
 
 		if (level < MAX_LEVEL)
 		{
-			happy += (satisfied ? 1 : -0.5) * (1 / Defs.HEARTS * HXP.elapsed / HAPPY_HEART_SECONDS);
+			happy += (satisfied ? 1 : -2) * (1 / Defs.HEARTS * HXP.elapsed / HAPPY_HEART_SECONDS);
 			happy = HXP.clamp(happy, 0, 1);
 
 			avgHappiness += happy * (HXP.elapsed / timeToEvolve);
@@ -237,6 +243,12 @@ class Monster extends Entity
 	{
 		health -= 1 / Defs.HEARTS;
 		if (health <= 0.0001) health = 0;
+	}
+
+	public function makeHappy()
+	{
+		happy += 1 / Defs.HEARTS;
+		if (health > 1) health = 1;
 	}
 
 	public function randomX() return randomPosition(Client.monsterBounds.x, Client.monsterBounds.width, x);
@@ -286,6 +298,13 @@ class Monster extends Entity
 
 	function evolve():Void
 	{
+		if (bubble != null)
+		{
+			var gl:Graphiclist = cast graphic;
+			gl.remove(bubble);
+			bubble = null;
+		}
+
 		Sound.play("evolve");
 		for (i in 0 ... 32)
 		{
@@ -343,9 +362,22 @@ class Monster extends Entity
 			{
 				return Eat(meat);
 			}
-			else if (hungry < 0.4)
+			else if (hungry <= 1 / Defs.HEARTS)
 			{
 				return Want(IconType.Fork, 4);
+			}
+		}
+
+		if (level < 3)
+		{
+			var ball = findBall();
+			if (ball != null && ball.kickTime == 0)
+			{
+				return Move(ball.x, ball.y);
+			}
+			else if (happy <= 1 / Defs.HEARTS)
+			{
+				return Want(IconType.Ball, 2);
 			}
 		}
 
@@ -361,6 +393,11 @@ class Monster extends Entity
 	function findMeat():Null<Meat>
 	{
 		return cast scene.collideRect("meat", 0, 0, HXP.width, HXP.height);
+	}
+
+	function findBall():Null<Ball>
+	{
+		return cast scene.collideRect("ball", 0, 0, HXP.width, HXP.height);
 	}
 
 	function findPoo():Null<Poo>
@@ -379,7 +416,7 @@ class Monster extends Entity
 					{
 						hungry += 1 / Defs.HEARTS;
 						if (hungry > 1) hungry = 1;
-						behavior = null;
+						behavior = Idle(1);
 						++pooProgress;
 
 						if (level < MAX_LEVEL)

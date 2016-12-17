@@ -47,9 +47,7 @@ class GameOverScene extends Scene
 		}
 		else if (Input.mousePressed)
 		{
-			HXP.engine.popScene();
-			HXP.engine.popScene();
-			HXP.engine.pushScene(new GameScene());
+			HXP.scene = new GameScene();
 		}
 	}
 }

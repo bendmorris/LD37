@@ -37,7 +37,7 @@ class Sword extends Entity
 	{
 		if (monster.spine.currentAnimation == AnimationType.Eat)
 		{
-			Sound.play("sword");
+			Sound.play("hit");
 			HXP.screen.shake();
 			flash.flash();
 			monster.hit();

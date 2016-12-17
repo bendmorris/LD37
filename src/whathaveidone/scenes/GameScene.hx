@@ -4,6 +4,7 @@ import haxepunk.HXP;
 import haxepunk.Entity;
 import haxepunk.Scene;
 import haxepunk.graphics.Backdrop;
+import whathaveidone.entities.Ball;
 import whathaveidone.entities.Button;
 import whathaveidone.entities.HeartMeter;
 import whathaveidone.entities.Meat;
@@ -25,6 +26,7 @@ class GameScene extends Scene
 	var progressMeter:HeartMeter;
 	var healthMeter:HeartMeter;
 	var foodButton:Button;
+	var ballButton:Button;
 	var duckButton:Button;
 	var shotButton:Button;
 
@@ -62,10 +64,17 @@ class GameScene extends Scene
 		foodButton.y = 8;
 		foodButton.x = HXP.width - 8 - foodButton.width;
 		add(foodButton);
+
+		ballButton = new Button(IconType.Ball, pressBall);
+		ballButton.y = foodButton.y + foodButton.height + 8;
+		ballButton.x = HXP.width - 8 - foodButton.width;
+		add(ballButton);
+
 		duckButton = new Button(IconType.Duck, pressDuck);
-		duckButton.y = foodButton.y + foodButton.height + 8;
+		duckButton.y = ballButton.y + ballButton.height + 8;
 		duckButton.x = foodButton.x;
 		add(duckButton);
+
 		shotButton = new Button(IconType.Shot, pressShot);
 		shotButton.y = duckButton.y + duckButton.height + 8;
 		shotButton.x = foodButton.x;
@@ -96,6 +105,7 @@ class GameScene extends Scene
 
 		if (!switchedButtons && monster.level == Monster.MAX_LEVEL)
 		{
+			remove(ballButton);
 			remove(shotButton);
 			var swordButton = new Button(IconType.Sword, pressSword);
 			swordButton.y = shotButton.y;
@@ -113,7 +123,7 @@ class GameScene extends Scene
 
 		if (monster.health <= 0)
 		{
-			HXP.engine.pushScene(new GameOverScene());
+			HXP.scene = new GameOverScene();
 		}
 	}
 
@@ -127,6 +137,19 @@ class GameScene extends Scene
 			meat.x = monster.randomX();
 			meat.y = monster.randomY();
 			add(meat);
+		}
+	}
+
+	function pressBall()
+	{
+		var ball:Ball = cast collideRect("ball", 0, 0, HXP.width, HXP.height);
+		if (ball == null)
+		{
+			Sound.play("give");
+			ball = new Ball();
+			ball.x = monster.randomX();
+			ball.y = monster.randomY();
+			add(ball);
 		}
 	}
 

@@ -16,8 +16,9 @@ abstract IconType(Int) from Int to Int
 	var Duck = 5;
 	var Shot = 6;
 	var Sword = 7;
+	var Ball = 8;
 
-	var Mute = 8;
+	var Mute = 9;
 }
 
 
