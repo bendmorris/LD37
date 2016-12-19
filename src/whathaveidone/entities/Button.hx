@@ -1,7 +1,6 @@
 package whathaveidone.entities;
 
 import haxepunk.Entity;
-import haxepunk.graphics.NineSlice;
 import haxepunk.utils.Input;
 import whathaveidone.graphics.Icon;
 
